@@ -45,7 +45,7 @@ public class HomeController {
 		if(!model.containsAttribute("memberVo")) 
 			model.addAttribute("memberVo", new MemberVo());
 		
-		return "/member/joinPage";
+		return "joinPage";
 	}	
 	
 	/**

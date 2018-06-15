@@ -43,7 +43,7 @@ public class MemberController {
 	 * 회원가입 폼
 	 */
 	@RequestMapping(value = "/joinCheck.do", method = RequestMethod.POST)
-	public ModelAndView joinPage(Model model,@Valid @ModelAttribute("memberVo") MemberVo memberVo,
+	public ModelAndView joinForm(Model model,@Valid @ModelAttribute("memberVo") MemberVo memberVo,
 								BindingResult errors) {
 	
 		ModelAndView mv = new ModelAndView();
@@ -55,7 +55,7 @@ public class MemberController {
 
 			mv.addObject("error","error");
 			mv.addObject("memberVo", memberVo);
-			mv.setViewName("member/joinPage");
+			mv.setViewName("joinPage");
 			
 		}else{
 

@@ -42,14 +42,15 @@ function logoutCheck(){
 </script>
 </head>
 <body>
-<c:if test="${msg == 'loginError'}">
+<c:if test="${!empty requestScope.msg}">
 	<script>
 		alert("아이디 또는 비밀번호가 일치하지 않습니다.");
 	</script>
 </c:if>
+${requestScope.msg}
 <c:choose>
 	<c:when test="${sessionScope.loginId == null}">
-		<form id="loginForm" name="loginForm" action="${pageContext.request.contextPath}/login.do" method="post">
+		<form id="loginForm" name="loginForm" action="${pageContext.request.contextPath}/loginForm.do" method="post">
 			아이디 : <input type="text" id="id" name="id">
 			패스워드 : <input type="text" id="pw" name="pw">
 			<input type="submit" id="login" name="login" value="로그인" onclick="loginCheck();" >
@@ -59,7 +60,7 @@ function logoutCheck(){
 	</c:when>
     <c:otherwise>
         ${sessionScope.userName}님이 환영합니다.
-        <form id="logoutForm" name="logoutForm" action="${pageContext.request.contextPath}/logout.do" method="post">
+        <form id="logoutForm" name="logoutForm" action="${pageContext.request.contextPath}/member/logout.do" method="post">
         	<input type="submit" id="logout" name="logout" value="로그아웃" onclick="logoutCheck();" >
         </form>
         <form id="myPage" name="myPage" action="${pageContext.request.contextPath}/member/myPage.do" method="post">
