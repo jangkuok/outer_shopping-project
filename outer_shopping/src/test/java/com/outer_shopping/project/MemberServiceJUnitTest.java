@@ -30,19 +30,20 @@ public class MemberServiceJUnitTest {
  	/**
  	 * 회원가입 TEST
  	 */
-/* 	@Test
+ 	@Test
 	public void MemberInsertTest(){
 		log.info("######### JUnit(MemberInsertTest) 테스트 ##############");
 		
 		MemberVo member = new MemberVo();
 		
-		member.setId("asdasd");
-		member.setPw("jjj");
+		member.setId("kkkkkkkk");
+		member.setPw("kkkkkkkk");
 		member.setName("kim");
 		member.setEmail("jangkuok@naver.com");
 		member.setPhoneNum("01087791763");
 		member.setZipcode("000");
 		member.setAddress("경기도 성남시 분당구");
+		member.setAddress2("312동 1201호");
 		member.setSex("남");
 		member.setGrade("브론즈");
 		member.setEnabled(1);
@@ -50,7 +51,7 @@ public class MemberServiceJUnitTest {
 		service.joinMember(member);
 		
 	}
-*/
+
  	/**
  	 * 중복확인 TEST
  	 */
@@ -95,6 +96,10 @@ public class MemberServiceJUnitTest {
 		log.info("********************************");
 	}
 */
+ 	/**
+ 	 * 회원 정보 수정 TEST
+ 	 */
+/*	
 	@Test
 	public void MemberModifyTest(){
 		log.info("######### JUnit(MemberModifyTest) 테스트 ##############");
@@ -113,7 +118,20 @@ public class MemberServiceJUnitTest {
 		member.setEnabled(1);
 		
 		service.modifyMember(member);
+	}
+*/	 	
+	/**
+ 	 * 회원탈퇴 TEST
+ 	 */
+/*
+	@Test
+	public void MemberDeleteTest(){
+		log.info("######### JUnit(MemberDeleteTest) 테스트 ##############");
+		
+		String id = "ddddddddd";
+		
+		service.deleteMember(id);
 		
 	}
-	
+	*/
 }

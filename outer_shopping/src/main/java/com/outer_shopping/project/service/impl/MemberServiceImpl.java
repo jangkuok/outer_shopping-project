@@ -68,6 +68,20 @@ public class MemberServiceImpl implements MemberService {
 
 
 	/**
+	 * 회원 탈퇴
+	 */
+	@Override
+	public void deleteMember(String id) {
+		try {
+			dao.deleteMember(id);
+		} catch (Exception e) {
+			System.out.println("deleteMember(service) : ");
+			e.printStackTrace();
+		}
+	}
+	
+	
+	/**
 	 * 로그인 확인
 	 */
 	@Override
@@ -94,6 +108,7 @@ public class MemberServiceImpl implements MemberService {
 		
 		return dao.getMember(id);
 	}
+
 	
 	
 	

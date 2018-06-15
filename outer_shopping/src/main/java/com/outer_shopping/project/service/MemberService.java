@@ -25,8 +25,18 @@ public interface MemberService {
 	 */
 	void joinMember(MemberVo memberVo);
 	
+	/**
+	 * 회원 정보 수정하기
+	 * @param memberVo
+	 */
 	void modifyMember(MemberVo memberVo);
 
+	/**
+	 * 회원 탈퇴하기
+	 * @param id
+	 */
+	void deleteMember(String id);
+	
 	/**
 	 * 회원 로그인
 	 * @param id 

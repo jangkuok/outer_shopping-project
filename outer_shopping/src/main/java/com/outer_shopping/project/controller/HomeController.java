@@ -61,8 +61,9 @@ public class HomeController {
 			
 			session.setAttribute("loginId", id);
 			session.setAttribute("userName", member.getName());	
+			
 		}else {
-			model.addAttribute("msg","error");
+			model.addAttribute("msg","loginError");
 		}
 		
 		return "mainPage";

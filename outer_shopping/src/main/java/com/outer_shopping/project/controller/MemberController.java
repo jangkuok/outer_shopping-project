@@ -1,5 +1,8 @@
 package com.outer_shopping.project.controller;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
@@ -15,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.outer_shopping.project.service.MemberService;
 import com.outer_shopping.project.vo.MemberVo;
@@ -131,5 +135,36 @@ public class MemberController {
 			
 		return mv;
 	}	
+	/**
+	 * 회원정보 삭제
+	 */
+	@RequestMapping(value = "/deleteMember.do", method = RequestMethod.POST)
+	public String deleteMember(Model model,@RequestParam(value="id",required=false) String id,
+			@RequestParam(value="pw",required=false) String pw, @RequestParam(value="pw2",required=false) String pw2, HttpSession session,
+			RedirectAttributes redirectAttributes) {
+		
+		System.out.println("1" + pw + "2" + pw2);
+		
+		if(pw.equals(pw2)) {
+			service.deleteMember(id);
+			
+			session.invalidate();
+		}else {
+/*			//redirect 전송
+			Map<String, Object> map = new HashMap<String,Object>();
+		    map.put("msg", "deleteError");
+		    map.put("vo", service.viewMember(id));
+		    redirectAttributes.addFlashAttribute("memberVo", map);
+*/
+			
+			model.addAttribute("msg", "deleteError");
+			model.addAttribute("memberVo", service.viewMember(id));
+			
+			return "member/myPage";
+		}
+			
+		return "mainPage";
+	}
 
+	
 }

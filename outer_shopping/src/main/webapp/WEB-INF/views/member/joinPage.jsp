@@ -106,7 +106,8 @@ function join_button(){
 			성별 :		<form:radiobutton name="sex" path="sex" value="남자" label="남자"/>
 						<form:radiobutton name="sex" path="sex" value="여자" label="여자"/><br>
 			<form:hidden name="zipcode" path="zipcode" value=""/>	
-			<form:hidden name="address" path="address" value=""/>	
+			<form:hidden name="address" path="address" value=""/>
+			<form:hidden name="address2" path="address2" value=""/>				
 			<form:hidden name="grade" path="grade" value="브론즈"/>	
 			<form:hidden name="enabled" path="enabled" value="1"/>	
 		<input type="button" id="joinButton" name="joinButton" value="가입" onclick="join_button();">

@@ -101,8 +101,14 @@ public class MemberDaoImpl implements MemberDao {
 	 * 회원정보 삭제
 	 */
 	@Override
-	public int deleteMember(String id){
-		return 0;
+	public void deleteMember(String id){
+		try {
+			session.delete(makeSqlId("deleteMember"),id);
+			System.out.println("회원 삭제 완료");
+		} catch (Exception e) {
+			System.out.println("deleteMember(dao) : ");
+			e.printStackTrace();
+		}		
 	}
 
 	/**

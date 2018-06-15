@@ -11,7 +11,7 @@
 	 
 	<sql id="all-column">
 		member_id, pw, name, email,	phonenum, zipcode, 
-		address, sex, grade, enabled	
+		address, address2, sex, grade, enabled	
 	</sql> 
 	
 	<!-- 전체 조회 sql -->
@@ -19,7 +19,7 @@
 		SELECT 	member_id, pw, 
 				name, email,
 				phonenum, zipcode, 
-				address,sex, 
+				address, address2, sex, 
 				grade, enabled
 		FROM MEMBER
 	</sql>	 
@@ -32,6 +32,7 @@
 		<result column="PHONENUM" property="phoneNum"/>
 		<result column="ZIPCODE" property="zipcode"/>
 		<result column="ADDRESS" property="address"/>
+		<result column="ADDRESS2" property="address2"/>
 		<result column="SEX" property="sex"/>
 		<result column="GRADE" property="grade"/>
 		<result column="ENABLED" property="enabled"/>
@@ -54,6 +55,7 @@
 				#{phoneNum},
 				#{zipcode},
 				#{address},
+				#{address2},
 				#{sex},
 				#{grade},
 				#{enabled}
@@ -82,9 +84,16 @@
 				PHONENUM = #{phoneNum},
 				ZIPCODE = #{zipcode},
 				ADDRESS = #{address},
+				ADDRESS2 = #{address2},
 				SEX = #{sex},
 				GRADE = #{grade},
 				ENABLED = #{enabled}
 		WHERE	MEMBER_ID = #{id}
 	</update>
+	
+	
+	<!-- 회원 탈퇴 SQL -->
+	<delete id="deleteMember" parameterType="String">
+		DELETE FROM MEMBER WHERE MEMBER_ID = #{id}
+	</delete>
 </mapper>

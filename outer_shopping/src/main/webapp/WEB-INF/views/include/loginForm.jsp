@@ -42,7 +42,7 @@ function logoutCheck(){
 </script>
 </head>
 <body>
-<c:if test="${msg == 'error'}">
+<c:if test="${msg == 'loginError'}">
 	<script>
 		alert("아이디 또는 비밀번호가 일치하지 않습니다.");
 	</script>
@@ -53,7 +53,7 @@ function logoutCheck(){
 			아이디 : <input type="text" id="id" name="id">
 			패스워드 : <input type="text" id="pw" name="pw">
 			<input type="submit" id="login" name="login" value="로그인" onclick="loginCheck();" >
-			<input type="button" value="회원가입" onclick="location='joinPage.do'">
+			<input type="button" value="회원가입" onclick="location='${pageContext.request.contextPath}/joinPage.do'">
 		</form>
 		<input type="hidden" id="msg" name="msg" value="${msg}">
 	</c:when>

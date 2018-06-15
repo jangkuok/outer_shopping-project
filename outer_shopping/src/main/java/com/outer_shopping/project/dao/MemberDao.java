@@ -36,19 +36,22 @@ public interface MemberDao {
 	 */
 	void updateMember(MemberVo member);
 	
+
+	/**
+	 * 개별 회원정보 삭제
+	 * 
+	 * @param id 아이디
+	 */
+	void deleteMember(String id);
+	
+
 	/**
 	 * 전체 회원정보 조회(검색)
 	 * 
 	 * @return 전체 회원정보
 	 */
 	List<MemberVo> getAllMembers();
-	
-	/**
-	 * 개별 회원정보 삭제
-	 * 
-	 * @param id 아이디
-	 */
-	int deleteMember(String id);
+
 	
 	/**
 	 * 로그인 체크

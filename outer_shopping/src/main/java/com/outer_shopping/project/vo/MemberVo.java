@@ -37,6 +37,7 @@ public class MemberVo implements Serializable {
 	private String phoneNum;	//핸드폰번호
 	private String zipcode;		//우편번호
 	private String address;		//주소
+	private String address2;	//주소2
 	private String sex; 		//성별
 	private String grade; 		//등급
 	private int enabled;		//사용가능
@@ -53,12 +54,12 @@ public class MemberVo implements Serializable {
 	 * @param phoneNum 핸드폰번호
 	 * @param zipcode 우편번호
 	 * @param address 주소
-	 * @param birthday 생일
+	 * @param address2 주소2
 	 * @param grade 등급
 	 * @param enabled 사용가능
 	 */
 	public MemberVo(String id, String pw, String name, String email, String phoneNum, String zipcode, String address,
-			String sex, String grade, int enabled) {
+			String address2, String sex, String grade, int enabled) {
 		this.id = id;
 		this.pw = pw;
 		this.name = name;
@@ -66,6 +67,7 @@ public class MemberVo implements Serializable {
 		this.phoneNum = phoneNum;
 		this.zipcode = zipcode;
 		this.address = address;
+		this.address2 = address2;
 		this.sex = sex;
 		this.grade = grade;
 		this.enabled = enabled;
@@ -78,10 +80,10 @@ public class MemberVo implements Serializable {
 	@Override
 	public String toString() {
 		return "MemberVo [id=" + id + ", pw=" + pw + ", name=" + name + ", email=" + email + ", phoneNum=" + phoneNum
-				+ ", zipcode=" + zipcode + ", address=" + address + ", sex=" + sex + ", grade=" + grade + ", enabled="
-				+ enabled + "]";
+				+ ", zipcode=" + zipcode + ", address=" + address + ", address2=" + address2 + ", sex=" + sex
+				+ ", grade=" + grade + ", enabled=" + enabled + "]";
 	}
-	
+
 	//getter/setter
 	/**
 	 * @return the id
@@ -89,7 +91,6 @@ public class MemberVo implements Serializable {
 	public String getId() {
 		return id;
 	}
-
 
 	/**
 	 * @param id the id to set
@@ -181,7 +182,21 @@ public class MemberVo implements Serializable {
 	public void setAddress(String address) {
 		this.address = address;
 	}
-	
+
+	/**
+	 * @return the address2
+	 */
+	public String getAddress2() {
+		return address2;
+	}
+
+	/**
+	 * @param address2 the address2 to set
+	 */
+	public void setAddress2(String address2) {
+		this.address2 = address2;
+	}
+
 	/**
 	 * @return the sex
 	 */
@@ -233,6 +248,7 @@ public class MemberVo implements Serializable {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((address == null) ? 0 : address.hashCode());
+		result = prime * result + ((address2 == null) ? 0 : address2.hashCode());
 		result = prime * result + ((email == null) ? 0 : email.hashCode());
 		result = prime * result + enabled;
 		result = prime * result + ((grade == null) ? 0 : grade.hashCode());
@@ -266,6 +282,13 @@ public class MemberVo implements Serializable {
 				return false;
 			}
 		} else if (!address.equals(other.address)) {
+			return false;
+		}
+		if (address2 == null) {
+			if (other.address2 != null) {
+				return false;
+			}
+		} else if (!address2.equals(other.address2)) {
 			return false;
 		}
 		if (email == null) {
@@ -329,5 +352,8 @@ public class MemberVo implements Serializable {
 		}
 		return true;
 	}
+	
+
+	
 }
 
